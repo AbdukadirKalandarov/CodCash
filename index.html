@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Финансовая Грамотность - Обучение</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="brand" onclick="showHome()" style="cursor: pointer;" title="Главная страница">
+                    <span class="brand-icon">💧</span>
+                    <span class="brand-title">ФинНавигатор</span>
+                </div>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Меню">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <div class="header-right" id="header-nav">
+                    <div class="coins-badge">
+                        <span class="coins-icon">🪙</span>
+                        <span class="coins-value" id="header-coins">0</span>
+                    </div>
+                    <div class="user-avatar" id="user-avatar" onclick="showProfile()" style="cursor: pointer; display: none;" title="Личный кабинет">A</div>
+                    <button class="login-btn" id="login-btn" onclick="showLogin()">Войти</button>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
+        
+        <!-- Mobile Menu (только для кнопки Войти) -->
+        <div class="mobile-menu" id="mobile-menu">
+            <button class="mobile-menu-login-btn" id="mobile-menu-login-btn" onclick="showLogin(); closeMobileMenu();">Войти</button>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Screen (Главная страница) -->
+            <div id="home-screen" class="screen active">
+                <!-- 1. Яркий герой-баннер -->
+                <div class="hero">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Твои деньги. Твои правила. Твое будущее.</h1>
+                        <p class="hero-subtitle">Научись управлять карманными деньгами, копить на мечту и зарабатывать первые монеты еще в школе. Без скучных учебников.</p>
+                        <div class="hero-buttons">
+                            <button class="hero-cta primary" onclick="showRegister()">
+                                <span>🚀</span>
+                                Начни бесплатно
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 2. Что ты найдешь здесь? -->
+                <div class="home-section">
+                    <h2 class="section-title">Что ты найдешь здесь?</h2>
+                    <div class="features-grid-4">
+                        <div class="feature-card-home">
+                            <div class="feature-icon-home">📱</div>
+                            <h3>Бюджет на ладони</h3>
+                            <p>Следи за карманными деньгами и расходами в нашем простом трекере</p>
+                        </div>
+                        <div class="feature-card-home">
+                            <div class="feature-icon-home">🎯</div>
+                            <h3>Копить — это легко</h3>
+                            <p>Ставь цели (новый телефон, ПК, путешествие) и получай план, как их достичь</p>
+                        </div>
+                        <div class="feature-card-home">
+                            <div class="feature-icon-home">🎮</div>
+                            <h3>Учись, играя</h3>
+                            <p>Проходи квесты и симуляторы, где твои решения влияют на виртуальный бюджет</p>
+                        </div>
+                        <div class="feature-card-home">
+                            <div class="feature-icon-home">📈</div>
+                            <h3>Простыми словами о сложном</h3>
+                            <p>Что такое акции, кредиты, налоги и как это касается тебя</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2.5. Инструкция -->
+                <div class="home-section instruction-section">
+                    <h2 class="section-title">Инструкция</h2>
+                    <p class="section-subtitle">Твой путь к финансовой грамотности за 4 простых шага</p>
+                    <div class="instruction-flow">
+                        <div class="instruction-step">
+                            <div class="step-box">
+                                <div class="step-emoji">👤</div>
+                                <p>Зарегистрируйся или войди в свой аккаунт</p>
+                            </div>
+                        </div>
+                        <div class="arrow-container">
+                            <div class="arrow-right">→</div>
+                        </div>
+                        <div class="instruction-step">
+                            <div class="step-box">
+                                <div class="step-emoji">📚</div>
+                                <p>Изучай теорию в блоках, и зарабатывай монетки</p>
+                            </div>
+                        </div>
+                        <div class="arrow-container">
+                            <div class="arrow-right">→</div>
+                        </div>
+                        <div class="instruction-step">
+                            <div class="step-box">
+                                <div class="step-emoji">🎯</div>
+                                <p>Проходи интересные тесты в Практическом симуляторе</p>
+                            </div>
+                        </div>
+                        <div class="arrow-container">
+                            <div class="arrow-right">→</div>
+                        </div>
+                        <div class="instruction-step">
+                            <div class="step-box">
+                                <div class="step-emoji">🎮</div>
+                                <p>Закрепляй теорию в интересной игре и почувствуй себя самостоятельным!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Симуляторы и игры -->
+                <div class="home-section interactive-section">
+                    <h2 class="section-title">Попробуй прямо сейчас!</h2>
+                    <div class="simulators-grid">
+                        <div class="simulator-preview-card">
+                            <div class="simulator-card-icon">💰</div>
+                            <h3>Недельный бюджет</h3>
+                            <p>Распредели 2000 монет на неделю и узнай, сколько сможешь накопить</p>
+                            <button class="simulator-try-btn" onclick="showWeeklyBudgetSimulator()">Попробовать</button>
+                        </div>
+                        <div class="simulator-preview-card">
+                            <div class="simulator-card-icon">🎯</div>
+                            <h3>Какой ты инвестор?</h3>
+                            <p>Пройди короткий квиз и узнай свой финансовый тип</p>
+                            <button class="simulator-try-btn" onclick="showInvestorQuiz()">Пройти квиз</button>
+                        </div>
+                        <div class="simulator-preview-card motivator">
+                            <div class="simulator-card-icon">🏆</div>
+                            <h3>Присоединяйся к успешным</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Популярное сейчас -->
+                <div class="home-section popular-content">
+                    <h2 class="section-title">Популярное сейчас</h2>
+                    <div class="content-cards-grid">
+                        <div class="content-card">
+                            <div class="content-badge">📖 История</div>
+                            <h3>Как я накопил на ноутбук за 4 месяца</h3>
+                            <p>Реальная история от Саши, 16 лет. Простой план накоплений без лишений</p>
+                            <button class="content-read-btn" onclick="startLearning()">Читать →</button>
+                        </div>
+                        <div class="content-card">
+                            <div class="content-badge">💡 Лайфхаки</div>
+                            <h3>Экономь на подписках</h3>
+                            <p>Spotify, YouTube Premium, Netflix — как платить меньше и не терять качество</p>
+                            <button class="content-read-btn" onclick="startLearning()">Узнать →</button>
+                        </div>
+                        <div class="content-card challenge">
+                            <div class="content-badge">🎯 Челлендж недели</div>
+                            <h3>Стоимость твоего часа</h3>
+                            <p>Рассчитай, сколько стоит час твоей жизни. Инструкция внутри</p>
+                            <button class="content-read-btn" onclick="startLearning()">Принять вызов →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Отзывы и истории успеха -->
+                <div class="home-section testimonials">
+                    <h2 class="section-title">Они уже на пути к финансовой свободе</h2>
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">И</div>
+                            <p class="testimonial-text">"Благодаря симулятору я перестал тратить все деньги в первый же день и накопил на концерт!"</p>
+                            <p class="testimonial-author">— Илья, 17 лет</p>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">А</div>
+                            <p class="testimonial-text">"Статья о кредитных картах спасла меня от первой финансовой ошибки"</p>
+                            <p class="testimonial-author">— Аня, 10 класс</p>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">М</div>
+                            <p class="testimonial-text">"Игра 'Твоя жизнь' показала, как важно инвестировать. Теперь понимаю, куда идут деньги родителей"</p>
+                            <p class="testimonial-author">— Максим, 16 лет</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Заключительный призыв к действию -->
+                <div class="home-section final-cta">
+                    <div class="final-cta-content">
+                        <h2>Твое финансовое будущее начинается сегодня. Бесплатно.</h2>
+                        <p>Присоединяйся к тысячам школьников, которые уже учатся управлять деньгами</p>
+                        <div class="final-cta-buttons">
+                            <button class="hero-cta primary" onclick="showRegister()">
+                                <span>✨</span>
+                                Создать аккаунт
+                            </button>
+                            <button class="hero-cta secondary" onclick="showLogin()">
+                                <span>🔑</span>
+                                Уже есть аккаунт
+                            </button>
+                        </div>
+                        <p class="cta-guarantee">✅ Без спама. Только полезные материалы. Можно отписаться в любой момент</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Login Screen -->
+            <div id="login-screen" class="screen">
+                <div class="auth-container">
+                    <div class="auth-header">
+                        <h2>Вход в аккаунт</h2>
+                        <p>Войдите, чтобы продолжить обучение</p>
+                    </div>
+                    <form class="auth-form" id="login-form" onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <label>Логин</label>
+                            <input type="text" id="login-username" required placeholder="Введите логин">
+                        </div>
+                        <div class="form-group">
+                            <label>Пароль</label>
+                            <input type="password" id="login-password" required placeholder="Введите пароль">
+                        </div>
+                        <button type="submit" class="auth-btn">Войти</button>
+                        <button type="button" class="auth-btn secondary" onclick="showHome()">Назад</button>
+                        <div class="auth-switch">
+                            <p>Нет аккаунта? <a href="#" onclick="showRegister(); return false;">Зарегистрироваться</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Register Screen -->
+            <div id="register-screen" class="screen">
+                <div class="auth-container">
+                    <div class="auth-header">
+                        <h2>Регистрация</h2>
+                        <p>Создайте аккаунт для начала обучения</p>
+                    </div>
+                    <form class="auth-form" id="register-form" onsubmit="handleRegister(event)">
+                        <div class="form-group">
+                            <label>Логин</label>
+                            <input type="text" id="register-username" required placeholder="Придумайте логин" minlength="3">
+                        </div>
+                        <div class="form-group">
+                            <label>Пароль</label>
+                            <input type="password" id="register-password" required placeholder="Придумайте пароль" minlength="4">
+                        </div>
+                        <div class="form-group">
+                            <label>Подтвердите пароль</label>
+                            <input type="password" id="register-password-confirm" required placeholder="Повторите пароль">
+                        </div>
+                        <button type="submit" class="auth-btn">Зарегистрироваться</button>
+                        <button type="button" class="auth-btn secondary" onclick="showHome()">Назад</button>
+                        <div class="auth-switch">
+                            <p>Уже есть аккаунт? <a href="#" onclick="showLogin(); return false;">Войти</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Profile Screen -->
+            <div id="profile-screen" class="screen">
+                <div class="profile-container">
+                    <div class="profile-header">
+                        <button class="back-btn" onclick="showLessons()">← Назад</button>
+                        <h2>Личный кабинет</h2>
+                    </div>
+                    <div class="profile-content">
+                        <div class="profile-avatar-large">
+                            <div class="profile-avatar-circle" id="profile-avatar-circle">A</div>
+                        </div>
+                        <div class="profile-info">
+                            <div class="info-card">
+                                <div class="info-label">Логин</div>
+                                <div class="info-value" id="profile-username">-</div>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-label">Пароль</div>
+                                <div class="info-value password-display" id="profile-password">••••••••</div>
+                                <button class="toggle-password-btn" onclick="togglePassword()">👁️ Показать</button>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-label">Монеты</div>
+                                <div class="info-value">🪙 <span id="profile-coins">0</span></div>
+                            </div>
+                        </div>
+                        <div class="profile-actions">
+                            <button class="logout-btn" onclick="handleLogout()">Выйти из аккаунта</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lessons Screen -->
+            <div id="lessons-screen" class="screen">
+                <!-- Hero плашка с кнопкой "Начать обучение" -->
+                <div class="hero" id="lessons-hero">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Добро пожаловать в ФинНавигатор! 💧</h1>
+                        <p class="hero-subtitle">Изучай финансовую грамотность легко и интересно. Начни свой путь к финансовой свободе уже сегодня!</p>
+                        <button class="hero-cta primary" onclick="startLearning()">
+                            <span>🚀</span>
+                            Начать обучение
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lessons-container">
+                    <div class="lessons-header">
+                        <div class="lessons-header-icon">📚</div>
+                        <h2>Блоки обучения</h2>
+                    </div>
+                    <div class="lessons-grid">
+                        <!-- Lesson 1: Фундамент (Деньги и Я) -->
+                        <div class="lesson-card" id="lesson-1-card" onclick="openLesson(1)">
+                            <div class="lesson-icon current">💰</div>
+                            <div class="lesson-card-content">
+                            <h3>Фундамент (Деньги и Я)</h3>
+                            <div class="lesson-progress">
+                                <div class="progress-bar">
+                                        <div class="progress-fill" id="lesson-1-progress-fill" style="width: 0%"></div>
+                                    </div>
+                                    <span id="lesson-1-progress-text">Новый урок</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lesson 2 -->
+                        <div class="lesson-card" id="lesson-2-card" onclick="showBlockOverview(2)">
+                            <div class="lesson-icon locked">🏦</div>
+                            <div class="lesson-card-content">
+                                <h3>Банки и кредиты</h3>
+                                <div class="lesson-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" id="lesson-2-progress-fill" style="width: 0%"></div>
+                                    </div>
+                                    <span id="lesson-2-progress-text">Заблокировано</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lesson 3 -->
+                        <div class="lesson-card" id="lesson-3-card" onclick="openLesson(3)">
+                            <div class="lesson-icon locked">📈</div>
+                            <div class="lesson-card-content">
+                                <h3>Инвестиции</h3>
+                                <div class="lesson-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" id="lesson-3-progress-fill" style="width: 0%"></div>
+                                    </div>
+                                    <span id="lesson-3-progress-text">Заблокировано</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lesson 5 -->
+                        <div class="lesson-card" id="lesson-5-card" onclick="openLesson(5)">
+                            <div class="lesson-icon locked">🏠</div>
+                            <div class="lesson-card-content">
+                                <h3>Недвижимость</h3>
+                                <div class="lesson-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" id="lesson-5-progress-fill" style="width: 0%"></div>
+                                    </div>
+                                    <span id="lesson-5-progress-text">Заблокировано</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lesson 6 -->
+                        <div class="lesson-card" id="lesson-6-card" onclick="openLesson(6)">
+                            <div class="lesson-icon locked">🛡️</div>
+                            <div class="lesson-card-content">
+                                <h3>Страхование</h3>
+                                <div class="lesson-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" id="lesson-6-progress-fill" style="width: 0%"></div>
+                                    </div>
+                                    <span id="lesson-6-progress-text">Заблокировано</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Практический симулятор -->
+                <div class="simulator-section" onclick="showSimulatorSelection()" style="cursor: pointer;">
+                    <div class="simulator-section-header">
+                        <div class="simulator-main-icon">🎮</div>
+                        <div class="simulator-header-content">
+                            <h2 class="simulator-title">Практический симулятор</h2>
+                            <p class="simulator-subtitle">Проверь свои знания на практике!</p>
+                        </div>
+                    </div>
+                    <div class="simulator-features">
+                        <div class="simulator-feature-item">
+                            <div class="simulator-feature-icon">❓</div>
+                            <span>Вопросы</span>
+                        </div>
+                        <div class="simulator-feature-item">
+                            <div class="simulator-feature-icon">📋</div>
+                            <span>Практические ситуации</span>
+                        </div>
+                        <div class="simulator-feature-item">
+                            <div class="simulator-feature-icon">📊</div>
+                            <span>Результаты</span>
+                        </div>
+                    </div>
+                    <div class="simulator-preview">
+                        <div class="simulator-preview-icon">👉</div>
+                        <p class="simulator-preview-text">Нажмите, чтобы выбрать блок для практики</p>
+                        <div class="simulator-preview-arrow">→</div>
+                    </div>
+                </div>
+                
+                <!-- Игра "Твоя жизнь" -->
+                <div class="life-game-section" onclick="showLifeGame()" style="cursor: pointer;">
+                    <div class="life-game-header">
+                        <div class="life-game-main-icon">🎯</div>
+                        <div class="life-game-header-content">
+                            <h2 class="life-game-title">Твоя жизнь</h2>
+                            <p class="life-game-subtitle">Финансовая Свобода: Строй свою жизнь! Симулятор финансовой грамотности с полной свободой действий.</p>
+                        </div>
+                    </div>
+                    <div class="life-game-features">
+                        <div class="life-game-feature-item">
+                            <div class="life-game-feature-icon">🏦</div>
+                            <span>Банки и кредиты</span>
+                        </div>
+                        <div class="life-game-feature-item">
+                            <div class="life-game-feature-icon">📈</div>
+                            <span>Инвестиции</span>
+                        </div>
+                        <div class="life-game-feature-item">
+                            <div class="life-game-feature-icon">🏠</div>
+                            <span>Недвижимость</span>
+                        </div>
+                        <div class="life-game-feature-item">
+                            <div class="life-game-feature-icon">🛡️</div>
+                            <span>Страхование</span>
+                        </div>
+                    </div>
+                    <div class="life-game-preview">
+                        <div class="life-game-preview-icon">🎮</div>
+                        <p class="life-game-preview-text">Начни строить свою финансовую жизнь прямо сейчас!</p>
+                        <div class="life-game-preview-arrow">→</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Life Game Screen -->
+            <div id="life-game-screen" class="screen">
+                <div class="life-game-container">
+                    <div class="life-game-header-bar">
+                        <button class="life-game-back-btn" onclick="backToLessons()">
+                            ← Назад к урокам
+                        </button>
+                        <h2 class="life-game-title-header">🎯 Твоя жизнь</h2>
+                    </div>
+                    <div class="life-game-layout">
+                        <!-- Левый сайдбар - Панель состояния -->
+                        <div class="life-game-sidebar">
+                            <div class="life-game-player-panel">
+                                <div class="player-avatar">👤</div>
+                                <div class="player-name" id="life-game-player-name">Игрок</div>
+                                
+                                <div class="player-finance">
+                                    <div class="finance-item">
+                                        <span class="finance-label">💰 НАЛИЧНЫЕ:</span>
+                                        <span class="finance-value" id="life-game-cash">50 000</span> 🪙
+                                    </div>
+                                    <div class="finance-item">
+                                        <span class="finance-label">🏦 В БАНКЕ:</span>
+                                        <span class="finance-value" id="life-game-bank">0</span> 🪙
+                                    </div>
+                                    <div class="finance-item total">
+                                        <span class="finance-label">📈 ОБЩИЙ КАПИТАЛ:</span>
+                                        <span class="finance-value" id="life-game-total-capital">50 000</span> 🪙
+                                    </div>
+                                </div>
+                                
+                                <div class="player-assets">
+                                    <div class="assets-title">📊 АКТИВЫ:</div>
+                                    <div class="assets-list">
+                                        <div class="asset-item">
+                                            <span>Акции:</span>
+                                            <span id="life-game-assets-stocks">0</span> 🪙
+                                        </div>
+                                        <div class="asset-item">
+                                            <span>Облигации:</span>
+                                            <span id="life-game-assets-bonds">0</span> 🪙
+                                        </div>
+                                        <div class="asset-item">
+                                            <span>Недвижимость:</span>
+                                            <span id="life-game-assets-realestate">0</span> 🪙
+                                        </div>
+                                        <div class="asset-item">
+                                            <span>Депозиты:</span>
+                                            <span id="life-game-assets-deposits">0</span> 🪙
+                                        </div>
+                                        <div class="asset-item">
+                                            <span>Страховки:</span>
+                                            <span id="life-game-assets-insurance">0</span> 🪙
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="game-time">
+                                    <div class="time-display">
+                                        <span id="life-game-time">1 МЕСЯЦ</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="game-buttons">
+                                    <button class="game-action-btn" onclick="openBankPanel()">🏦 БАНК</button>
+                                    <button class="game-action-btn" onclick="openStockPanel()">📈 БИРЖА</button>
+                                    <button class="game-action-btn" onclick="openRealEstatePanel()">🏠 РИЭЛТОР</button>
+                                    <button class="game-action-btn" onclick="openInsurancePanel()">🛡️ СТРАХОВАЯ</button>
+                                    <button class="game-action-btn" onclick="openStatisticsPanel()">📊 СТАТИСТИКА</button>
+                                    <button class="game-action-btn" onclick="checkEvents()">📰 СОБЫТИЯ</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Центральная панель -->
+                        <div class="life-game-main">
+                            <div class="life-game-map">
+                                <div class="map-title">🗺️ Карта жизни</div>
+                                <div class="map-areas">
+                                    <div class="map-area residential" onclick="openRealEstatePanel()">
+                                        <div class="map-icon">🏠</div>
+                                        <div class="map-label">Жилой район</div>
+                                    </div>
+                                    <div class="map-area business" onclick="openBankPanel()">
+                                        <div class="map-icon">🏢</div>
+                                        <div class="map-label">Деловой район</div>
+                                    </div>
+                                    <div class="map-area realestate" onclick="openRealEstatePanel()">
+                                        <div class="map-icon">🏘️</div>
+                                        <div class="map-label">Район недвижимости</div>
+                                    </div>
+                                    <div class="map-area services" onclick="openInsurancePanel()">
+                                        <div class="map-icon">🏥</div>
+                                        <div class="map-label">Район услуг</div>
+                                    </div>
+                                    <div class="map-area stock" onclick="openStockPanel()">
+                                        <div class="map-icon">📈</div>
+                                        <div class="map-label">Биржа</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Панели действий (скрыты по умолчанию) -->
+                            <div id="life-game-bank-panel" class="game-panel" style="display: none;">
+                                <div class="panel-header">
+                                    <h3>🏦 Банк и кредиты</h3>
+                                    <button class="panel-close" onclick="closePanel('life-game-bank-panel')">×</button>
+                                </div>
+                                <div class="panel-tabs">
+                                    <button class="panel-tab active" onclick="switchBankTab('deposits')">Вклады</button>
+                                    <button class="panel-tab" onclick="switchBankTab('credits')">Кредиты</button>
+                                </div>
+                                <div id="bank-deposits-content" class="panel-content">
+                                    <div class="bank-product-card">
+                                        <h4>ДЕПОЗИТ "НАКОПИТЕЛЬНЫЙ"</h4>
+                                        <div class="product-info">
+                                            <div>Срок: 12 месяцев</div>
+                                            <div>Ставка: 6% годовых</div>
+                                        </div>
+                                        <input type="number" id="deposit-amount-input" placeholder="Сумма" min="1000" class="product-input">
+                                        <div class="product-calc" id="deposit-calc">Доход через год: 0 🪙</div>
+                                        <button class="product-btn" onclick="openDeposit('savings')">ОТКРЫТЬ ВКЛАД</button>
+                                    </div>
+                                    <div class="bank-product-card">
+                                        <h4>ДЕПОЗИТ "ЭКСПРЕСС"</h4>
+                                        <div class="product-info">
+                                            <div>Срок: 3 месяца</div>
+                                            <div>Ставка: 4% годовых</div>
+                                        </div>
+                                        <input type="number" id="deposit-express-amount-input" placeholder="Сумма" min="1000" class="product-input">
+                                        <div class="product-calc" id="deposit-express-calc">Доход через 3 месяца: 0 🪙</div>
+                                        <button class="product-btn" onclick="openDeposit('express')">ОТКРЫТЬ</button>
+                                    </div>
+                                    <div class="my-deposits">
+                                        <h4>МОИ ВКЛАДЫ:</h4>
+                                        <div id="my-deposits-list"></div>
+                                    </div>
+                                </div>
+                                <div id="bank-credits-content" class="panel-content" style="display: none;">
+                                    <div class="bank-product-card">
+                                        <h4>ПОТРЕБИТЕЛЬСКИЙ КРЕДИТ</h4>
+                                        <div class="product-info">
+                                            <div>Максимум: 1 000 000 🪙</div>
+                                            <div>Срок: до 5 лет</div>
+                                            <div>Ставка: 18% годовых</div>
+                                        </div>
+                                        <input type="number" id="credit-amount-input" placeholder="Сумма" min="10000" max="1000000" class="product-input">
+                                        <input type="number" id="credit-term-input" placeholder="Срок (месяцев)" min="6" max="60" class="product-input">
+                                        <div class="product-calc" id="credit-calc">Ежемесячный платеж: 0 🪙</div>
+                                        <button class="product-btn" onclick="takeCredit()">ВЗЯТЬ КРЕДИТ</button>
+                                    </div>
+                                    <div class="bank-product-card">
+                                        <h4>ИПОТЕКА</h4>
+                                        <div class="product-info">
+                                            <div>Сумма: до 10 000 000 🪙</div>
+                                            <div>Ставка: 12% годовых</div>
+                                            <div>Первоначальный взнос: 20%</div>
+                                        </div>
+                                        <input type="number" id="mortgage-amount-input" placeholder="Сумма" min="1000000" max="10000000" class="product-input">
+                                        <input type="number" id="mortgage-term-input" placeholder="Срок (лет)" min="5" max="30" class="product-input">
+                                        <div class="product-calc" id="mortgage-calc">Ежемесячный платеж: 0 🪙</div>
+                                        <button class="product-btn" onclick="takeMortgage()">ПОДАТЬ ЗАЯВКУ</button>
+                                    </div>
+                                    <div class="my-credits">
+                                        <h4>МОИ КРЕДИТЫ:</h4>
+                                        <div id="my-credits-list"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="life-game-stock-panel" class="game-panel" style="display: none;">
+                                <div class="panel-header">
+                                    <h3>📈 Биржа</h3>
+                                    <button class="panel-close" onclick="closePanel('life-game-stock-panel')">×</button>
+                                </div>
+                                <div class="panel-tabs">
+                                    <button class="panel-tab active" onclick="switchStockTab('stocks')">Акции</button>
+                                    <button class="panel-tab" onclick="switchStockTab('bonds')">Облигации</button>
+                                    <button class="panel-tab" onclick="switchStockTab('portfolio')">Портфель</button>
+                                </div>
+                                <div id="stock-stocks-content" class="panel-content">
+                                    <div class="stocks-table">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>КОМПАНИЯ</th>
+                                                    <th>ЦЕНА</th>
+                                                    <th>ИЗМЕНЕНИЕ</th>
+                                                    <th>ВАШЕ</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="stocks-table-body">
+                                                <!-- Заполняется динамически -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="stock-action-panel">
+                                        <div class="stock-selected" id="selected-stock-info">Выберите акцию</div>
+                                        <input type="range" id="stock-quantity-slider" min="1" max="1000" value="1" oninput="updateStockPurchase()">
+                                        <div class="stock-quantity-display">
+                                            <span>Количество: <span id="stock-quantity-display">1</span></span>
+                                            <span>Сумма: <span id="stock-purchase-amount">0</span> 🪙</span>
+                                        </div>
+                                        <div class="stock-buttons">
+                                            <button class="product-btn" onclick="buyStock()">КУПИТЬ</button>
+                                            <button class="product-btn" onclick="sellAllStocks()">ПРОДАТЬ ВСЕ</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="stock-bonds-content" class="panel-content" style="display: none;">
+                                    <div class="bonds-table">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>ОБЛИГАЦИЯ</th>
+                                                    <th>ЦЕНА</th>
+                                                    <th>ДОХОДНОСТЬ</th>
+                                                    <th>СРОК</th>
+                                                    <th>ВАШЕ</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="bonds-table-body">
+                                                <!-- Заполняется динамически -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="bond-action-panel">
+                                        <div class="bond-selected" id="selected-bond-info">Выберите облигацию</div>
+                                        <input type="number" id="bond-quantity-input" placeholder="Количество" min="1" class="product-input">
+                                        <div class="bond-calc" id="bond-calc">Сумма: 0 🪙</div>
+                                        <button class="product-btn" onclick="buyBond()">КУПИТЬ ОБЛИГАЦИИ</button>
+                                    </div>
+                                </div>
+                                <div id="stock-portfolio-content" class="panel-content" style="display: none;">
+                                    <div class="portfolio-summary">
+                                        <h4>МОЙ ПОРТФЕЛЬ</h4>
+                                        <div id="portfolio-details"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="life-game-realestate-panel" class="game-panel" style="display: none;">
+                                <div class="panel-header">
+                                    <h3>🏠 Недвижимость</h3>
+                                    <button class="panel-close" onclick="closePanel('life-game-realestate-panel')">×</button>
+                                </div>
+                                <div class="panel-tabs">
+                                    <button class="panel-tab active" onclick="switchRealEstateTab('buy')">Покупка</button>
+                                    <button class="panel-tab" onclick="switchRealEstateTab('my')">Моя недвижимость</button>
+                                </div>
+                                <div id="realestate-buy-content" class="panel-content">
+                                    <div id="available-properties-list"></div>
+                                </div>
+                                <div id="realestate-my-content" class="panel-content" style="display: none;">
+                                    <div id="my-properties-list"></div>
+                                </div>
+                            </div>
+                            
+                            <div id="life-game-insurance-panel" class="game-panel" style="display: none;">
+                                <div class="panel-header">
+                                    <h3>🛡️ Страхование</h3>
+                                    <button class="panel-close" onclick="closePanel('life-game-insurance-panel')">×</button>
+                                </div>
+                                <div class="insurance-products">
+                                    <div class="insurance-card">
+                                        <h4>СТРАХОВКА ЖИЗНИ</h4>
+                                        <div class="insurance-info">
+                                            <div>Сумма: 1 000 000 🪙</div>
+                                            <div>Срок: 1 год</div>
+                                            <div>Платеж: 1 000 🪙/мес</div>
+                                        </div>
+                                        <div class="insurance-desc">"Выплата при несчастном случае"</div>
+                                        <button class="product-btn" onclick="buyInsurance('life')">КУПИТЬ</button>
+                                    </div>
+                                    <div class="insurance-card">
+                                        <h4>СТРАХОВКА НЕДВИЖИМОСТИ</h4>
+                                        <div class="insurance-info">
+                                            <div>Объект: <select id="insurance-property-select"></select></div>
+                                            <div>Сумма: на стоимость объекта</div>
+                                            <div>Платеж: 500 🪙/мес</div>
+                                        </div>
+                                        <div class="insurance-desc">"Покрытие при пожаре, потопе"</div>
+                                        <button class="product-btn" onclick="buyInsurance('property')">КУПИТЬ</button>
+                                    </div>
+                                    <div class="insurance-card">
+                                        <h4>МЕДИЦИНСКАЯ СТРАХОВКА</h4>
+                                        <div class="insurance-info">
+                                            <div>Платеж: 2 000 🪙/мес</div>
+                                        </div>
+                                        <div class="insurance-desc">"Бесплатное лечение"</div>
+                                        <button class="product-btn" onclick="buyInsurance('medical')">КУПИТЬ</button>
+                                    </div>
+                                    <div class="my-insurance">
+                                        <h4>МОИ СТРАХОВКИ:</h4>
+                                        <div id="my-insurance-list"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="life-game-statistics-panel" class="game-panel" style="display: none;">
+                                <div class="panel-header">
+                                    <h3>📊 Статистика и цели</h3>
+                                    <button class="panel-close" onclick="closePanel('life-game-statistics-panel')">×</button>
+                                </div>
+                                <div class="statistics-content">
+                                    <div class="goals-section">
+                                        <h4>ЦЕЛИ:</h4>
+                                        <div id="goals-list"></div>
+                                    </div>
+                                    <div class="achievements-section">
+                                        <h4>ДОСТИЖЕНИЯ:</h4>
+                                        <div id="achievements-list"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="life-game-events-panel" class="game-panel" style="display: none;">
+                                <div class="panel-header">
+                                    <h3>📰 События</h3>
+                                    <button class="panel-close" onclick="closePanel('life-game-events-panel')">×</button>
+                                </div>
+                                <div id="events-list"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Simulator Selection Screen -->
+            <div id="simulator-selection-screen" class="screen">
+                <div class="simulator-selection-container">
+                    <div class="simulator-selection-header">
+                        <button class="back-btn" onclick="showLessons()">← Назад</button>
+                        <div class="simulator-selection-title-section">
+                            <div class="simulator-selection-main-icon">🎮</div>
+                            <div class="simulator-selection-header-content">
+                                <h2 class="simulator-selection-title">Практический симулятор</h2>
+                                <p class="simulator-selection-subtitle">Выберите блок для практики. Решайте вопросы и практические ситуации по каждому блоку.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simulator-selection-features">
+                        <div class="simulator-selection-feature-item">
+                            <div class="simulator-selection-feature-icon">❓</div>
+                            <span>Вопросы</span>
+                        </div>
+                        <div class="simulator-selection-feature-item">
+                            <div class="simulator-selection-feature-icon">📋</div>
+                            <span>Практические ситуации</span>
+                        </div>
+                        <div class="simulator-selection-feature-item">
+                            <div class="simulator-selection-feature-icon">📊</div>
+                            <span>Результаты</span>
+                        </div>
+                    </div>
+                    <div class="lessons-grid">
+                        <!-- Simulator Block 1 -->
+                        <div class="lesson-card" onclick="openSimulator(1)">
+                            <div class="lesson-icon current">💰</div>
+                            <h3>Фундамент (Деньги и Я)</h3>
+                            <div class="lesson-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span>Практика</span>
+                            </div>
+                        </div>
+
+                        <!-- Simulator Block 2 -->
+                        <div class="lesson-card" onclick="openSimulator(2)">
+                            <div class="lesson-icon locked">🏦</div>
+                            <h3>Банки и кредиты</h3>
+                            <div class="lesson-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span>Практика</span>
+                            </div>
+                        </div>
+
+                        <!-- Simulator Block 3 -->
+                        <div class="lesson-card" onclick="openSimulator(3)">
+                            <div class="lesson-icon locked">📈</div>
+                            <h3>Инвестиции</h3>
+                            <div class="lesson-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span>Практика</span>
+                            </div>
+                        </div>
+
+                        <!-- Simulator Block 5 -->
+                        <div class="lesson-card" onclick="openSimulator(5)">
+                            <div class="lesson-icon locked">🏠</div>
+                            <h3>Недвижимость</h3>
+                            <div class="lesson-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span>Практика</span>
+                            </div>
+                        </div>
+
+                        <!-- Simulator Block 6 -->
+                        <div class="lesson-card" onclick="openSimulator(6)">
+                            <div class="lesson-icon locked">🛡️</div>
+                            <h3>Страхование</h3>
+                            <div class="lesson-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span>Практика</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Simulator Screen -->
+            <div id="simulator-screen" class="screen">
+                <div class="simulator-container">
+                    <div class="simulator-header">
+                        <button class="back-btn" onclick="showSimulatorSelectionFromSimulator()">← Назад</button>
+                        <div class="simulator-title-section">
+                            <div class="simulator-icon" id="simulator-icon">💰</div>
+                            <h2 id="simulator-title">Практический симулятор: Фундамент (Деньги и Я)</h2>
+                        </div>
+                        <div class="simulator-progress">
+                            <span>Вопрос <span id="simulator-current-question">1</span> из <span id="simulator-total-questions">10</span></span>
+                        </div>
+                    </div>
+                    <div class="simulator-content" id="simulator-content">
+                        <!-- Контент будет загружаться динамически -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block Overview Screen -->
+            <div id="block-overview-screen" class="screen">
+                <div class="block-overview-container">
+                    <div class="block-overview-header">
+                        <button class="back-btn" onclick="showLessons()">← Назад</button>
+                        <h1 id="block-overview-title">Знания, которые пригодятся каждому</h1>
+                        <p id="block-overview-intro" class="block-intro">Поговорим о том, какие бывают карты, вклады и кредиты, и как ими пользоваться с выгодой для себя. Вспомним простые правила защиты от мошенников.</p>
+                    </div>
+                    <div class="block-overview-content">
+                        <div class="block-illustration">
+                            <div class="illustration-3d"></div>
+                        </div>
+                        <div class="block-lessons-list">
+                            <h2>В этом модуле вы узнаете:</h2>
+                            <ul id="block-learning-points" class="learning-points">
+                                <!-- Learning points will be loaded dynamically -->
+                            </ul>
+                            <div class="lessons-section">
+                                <h3>Содержание</h3>
+                                <div id="block-lessons" class="block-lessons-grid">
+                                    <!-- Lessons will be loaded dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theory Screen -->
+            <div id="theory-screen" class="screen">
+                <div class="theory-container">
+                    <div class="theory-header">
+                        <button class="back-btn" onclick="showLessons()">← Назад</button>
+                        <div class="theory-title-section">
+                            <div class="theory-icon" id="theory-icon">💰</div>
+                            <h2 id="theory-title">Блок 1: Фундамент (Деньги и Я)</h2>
+                        </div>
+                        <div class="module-progress">
+                            <span>Прогресс модуля:</span>
+                            <div class="module-progress-bar">
+                                <div class="module-progress-fill" id="module-progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span id="module-progress-percent">0%</span>
+                        </div>
+                    </div>
+                    <div class="theory-content" id="theory-content">
+                        <!-- Content will be loaded dynamically -->
+                    </div>
+                    <div class="theory-footer">
+                        <button class="next-btn" onclick="startPractice()">Перейти к практике →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Practice Screen -->
+            <div id="practice-screen" class="screen">
+                <div class="practice-container">
+                    <div class="practice-header">
+                        <button class="back-btn" onclick="showTheory()">← Назад</button>
+                        <h2>Практика: Примени знания в игре!</h2>
+                        <div class="coins-display">
+                            <span>🪙</span>
+                            <span>Доступно монет: <strong id="practice-coins">0</strong></span>
+                        </div>
+                    </div>
+                    <div class="practice-content" id="practice-content">
+                        <!-- Practice content will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final Test Screen -->
+            <div id="final-test-screen" class="screen">
+                <div class="final-test-container">
+                    <div class="final-test-header">
+                        <button class="back-btn" onclick="showPractice()">← Назад</button>
+                        <h2>Финальный тест модуля</h2>
+                    </div>
+                    <div class="final-test-intro">
+                        <h3>Готов проверить свои знания?</h3>
+                        <p>Пройди финальный тест по модулю и получи награду!</p>
+                        <button class="start-final-test-btn" onclick="startFinalTest()">
+                            <span>▶</span>
+                            Начать финальный тест
+                        </button>
+                    </div>
+                    <div class="final-test-content" id="final-test-content" style="display: none;">
+                        <!-- Final test questions will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Screen (for practice mini-quizzes) -->
+            <div id="quiz-screen" class="screen">
+                <div class="quiz-container">
+                    <div class="quiz-header">
+                        <button class="back-btn" onclick="showPractice()">← Назад</button>
+                        <div class="quiz-progress">
+                            <span id="quiz-question-number">1</span> / <span id="quiz-total-questions">5</span>
+                        </div>
+                    </div>
+                    <div class="quiz-content">
+                        <h3 id="quiz-question">Вопрос будет здесь</h3>
+                        <div class="quiz-options" id="quiz-options">
+                            <!-- Options will be loaded dynamically -->
+                        </div>
+                    </div>
+                    <div class="quiz-footer">
+                        <button class="next-question-btn" onclick="nextQuestion()" disabled>Следующий вопрос</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="results-screen" class="screen">
+                <div class="results-container">
+                    <div class="results-content">
+                        <h2>Отлично!</h2>
+                        <div class="score-display">
+                            <div class="score-circle">
+                                <span id="final-score">4</span>/5
+                            </div>
+                        </div>
+                        <p id="score-message">Вы хорошо усвоили материал!</p>
+                        <div class="results-actions">
+                            <button class="retry-btn" onclick="startQuiz()">Повторить тест</button>
+                            <button class="continue-btn" onclick="showLessons()">Продолжить обучение</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Investment Practice Screen -->
+            <div id="investment-practice-screen" class="screen">
+                <div class="practice-container">
+                    <div class="practice-header">
+                        <button class="back-btn" onclick="showPractice()">← Назад</button>
+                        <h2>Практика: Инвестиции</h2>
+                        <div class="coins-display">
+                            <span>🪙</span>
+                            <span>Баланс: <strong id="practice-balance">100000</strong> 🪙</span>
+                        </div>
+                    </div>
+                    <div class="practice-content">
+                        <div class="investment-tabs">
+                            <button class="tab-btn active" onclick="switchInvestmentTab('stocks', this)">Акции</button>
+                            <button class="tab-btn" onclick="switchInvestmentTab('bonds', this)">Облигации</button>
+                            <button class="tab-btn" onclick="switchInvestmentTab('portfolio', this)">Портфель</button>
+                        </div>
+                        
+                        <div id="investment-stocks-tab" class="investment-tab-content active">
+                            <h3>Доступные акции</h3>
+                            <div id="practice-stocks-list"></div>
+                        </div>
+                        
+                        <div id="investment-bonds-tab" class="investment-tab-content">
+                            <h3>Доступные облигации</h3>
+                            <div id="practice-bonds-list"></div>
+                        </div>
+                        
+                        <div id="investment-portfolio-tab" class="investment-tab-content">
+                            <h3>Мой портфель</h3>
+                            <div class="portfolio-summary">
+                                <div class="portfolio-stat">
+                                    <span>Стоимость портфеля:</span>
+                                    <strong id="practice-portfolio-value">0</strong> 🪙
+                                </div>
+                            </div>
+                            <div id="practice-portfolio-items"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Кастомное модальное окно -->
+    <div id="custom-modal" class="custom-modal">
+        <div class="custom-modal-overlay"></div>
+        <div class="custom-modal-content">
+            <div class="custom-modal-header">
+                <div class="custom-modal-icon">🔒</div>
+                <h3 class="custom-modal-title" id="custom-modal-title">Сообщение</h3>
+            </div>
+            <div class="custom-modal-body">
+                <p class="custom-modal-message" id="custom-modal-message"></p>
+            </div>
+            <div class="custom-modal-footer">
+                <button class="custom-modal-btn" id="custom-modal-ok" onclick="closeCustomModal()">Понятно</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
